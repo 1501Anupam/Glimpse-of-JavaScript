@@ -63,3 +63,48 @@ if ((dolbon2 >= 100) && (dolbon2 > koalbon2)) {
 } else {
     console.log("Non of them won the BONUS 2");
 }
+
+// Coding Challenge 3
+let day = 'Wednesday';
+if (day === 'Monday') {
+    console.log("It's Monday!");
+} else if (day === 'Tuesday') {
+    console.log("It's Tuesday!");
+} else if (day === 'Wednesday' || day === 'Thursday') {
+    console.log("It's two days!");
+} else if (day === 'Friday') {
+    console.log("It's Friday!");
+} else if (day === 'Saturday') {
+    console.log("It's Saturday!");
+} else {
+    console.log("It's not a valid day!");
+}
+
+switch (day) {
+    case 'Monday':
+        console.log("It's Monday!");
+        break;
+    case 'Tuesday':
+        console.log("It's Tuesday!");
+        break;
+    case 'Wednesday':
+    case 'Thursday':
+        console.log("It's two days!");
+        break;
+    case 'Friday':
+        console.log("It's Friday!");
+        break;
+    case 'Saturday':
+        console.log("It's Saturday!");
+        break;
+    default:
+        console.log("It's not a valid day!");
+
+}
+
+// Coding Challenge 4
+let billValue = 275;
+let tip;
+
+((billValue >= 50) && (billValue <= 300)) ? (tip = billValue * 0.15) : (tip = billValue * 0.20);
+console.log(`The bill value is ${billValue}, the tip is ${tip} and the final value is ${billValue+tip}`);
