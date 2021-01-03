@@ -83,3 +83,32 @@ if (mark.calcBMI() > Peter.calcBMI()) {
 } else if (mark.calcBMI() < Peter.calcBMI()) {
     console.log(`Mark Smith's BMI is ${mark.calcBMI()} and is higher than Peter's BMI ${Peter.calcBMI()}`);
 }
+
+// Coding Challenge 4
+const billValue = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+const calcTip = function (bill) {
+    return (bill >= 50 && bill <= 300) ? 0.15 * bill : 0.20 * bill;
+}
+
+for (let i = 0; i < billValue.length; i++) {
+    tips.push((calcTip(billValue[i])));
+    totals.push(tips[i]+billValue[i]);
+}
+
+console.log(tips);
+console.log(totals);
+
+
+// BONUS Question
+let arr = [10,8,34,76,987,23,654,67];
+
+const calcAverage = function (arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+console.log(calcAverage(arr)/arr.length);
