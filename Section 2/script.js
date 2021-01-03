@@ -22,7 +22,7 @@ checkWinner(112, 30);
 
 
 //Coding challenge 2
-const bills = [125, 555,44];
+const bills = [125, 555, 44];
 console.log(bills);
 const calcBill = function (bill) {
     if (bill >= 50 && bill <= 300) {
@@ -37,20 +37,20 @@ console.log(tip);
 const total = [bills[0] + tip[0], bills[1] + tip[1], bills[2] + tip[2]];
 console.log(total);
 const Joey = {
-        firstname: "Joey",
-        lastname: "Tribyani",
-        birthYear: 1990,
-        job: "Actor",
-        friends: ["Chandler", "Phoebe", "Monica", "Rachel", "Ross"],
-        calcAge: function () {
-            return 2037 - this.birthYear;
-        },
-        hasDriverLicense: false,
-        theSummary : function() {
-            return `${this.firstname} is ${this.calcAge()}-years old and is an ${this.job} and ${this.hasDriverLicense?'has': 'has no'} driver's license`
-        }
+    firstname: "Joey",
+    lastname: "Tribyani",
+    birthYear: 1990,
+    job: "Actor",
+    friends: ["Chandler", "Phoebe", "Monica", "Rachel", "Ross"],
+    calcAge: function () {
+        return 2037 - this.birthYear;
+    },
+    hasDriverLicense: false,
+    theSummary: function () {
+        return `${this.firstname} is ${this.calcAge()}-years old and is an ${this.job} and ${this.hasDriverLicense?'has': 'has no'} driver's license`
+    }
 };
-if(Joey.hasDriverLicense) {
+if (Joey.hasDriverLicense) {
     console.log(`${Joey.firstname} is ${Joey.calcAge()}-years old and is an ${Joey.job} and has a driver's license`);
 } else {
     console.log(`${Joey.firstname} is ${Joey.calcAge()}-years old and is an ${Joey.job} and has no driver's license`);
@@ -94,7 +94,7 @@ const calcTip = function (bill) {
 
 for (let i = 0; i < billValue.length; i++) {
     tips.push((calcTip(billValue[i])));
-    totals.push(tips[i]+billValue[i]);
+    totals.push(tips[i] + billValue[i]);
 }
 
 console.log(tips);
@@ -102,7 +102,7 @@ console.log(totals);
 
 
 // BONUS Question
-let arr = [10,8,34,76,987,23,654,67];
+let arr = [10, 8, 34, 76, 987, 23, 654, 67];
 
 const calcAverage = function (arr) {
     let sum = 0;
@@ -111,4 +111,4 @@ const calcAverage = function (arr) {
     }
     return sum;
 }
-console.log(calcAverage(arr)/arr.length);
+console.log(calcAverage(arr) / arr.length);
