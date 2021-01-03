@@ -36,3 +36,50 @@ console.log(tip);
 
 const total = [bills[0] + tip[0], bills[1] + tip[1], bills[2] + tip[2]];
 console.log(total);
+const Joey = {
+        firstname: "Joey",
+        lastname: "Tribyani",
+        birthYear: 1990,
+        job: "Actor",
+        friends: ["Chandler", "Phoebe", "Monica", "Rachel", "Ross"],
+        calcAge: function () {
+            return 2037 - this.birthYear;
+        },
+        hasDriverLicense: false,
+        theSummary : function() {
+            return `${this.firstname} is ${this.calcAge()}-years old and is an ${this.job} and ${this.hasDriverLicense?'has': 'has no'} driver's license`
+        }
+};
+if(Joey.hasDriverLicense) {
+    console.log(`${Joey.firstname} is ${Joey.calcAge()}-years old and is an ${Joey.job} and has a driver's license`);
+} else {
+    console.log(`${Joey.firstname} is ${Joey.calcAge()}-years old and is an ${Joey.job} and has no driver's license`);
+
+}
+
+console.log(`${Joey.firstname} has ${Joey.friends.length} friends and his best friend is ${Joey.friends[0]}`);
+console.log(Joey.theSummary());
+
+//Coding Challenge 3
+
+const mark = {
+    fullName: "Mark Smith",
+    height: 1.69,
+    weight: 75,
+    calcBMI: function () {
+        return this.weight / (this.height ** 2);
+    }
+};
+const Peter = {
+    fullName: "Petre Smith",
+    height: 1.95,
+    weight: 95,
+    calcBMI: function () {
+        return this.weight / (this.height ** 2);
+    }
+};
+if (mark.calcBMI() > Peter.calcBMI()) {
+    console.log(`Mark Smith's BMI is ${mark.calcBMI()} and is higher than Peter's BMI ${Peter.calcBMI()}`);
+} else if (mark.calcBMI() < Peter.calcBMI()) {
+    console.log(`Mark Smith's BMI is ${mark.calcBMI()} and is higher than Peter's BMI ${Peter.calcBMI()}`);
+}
