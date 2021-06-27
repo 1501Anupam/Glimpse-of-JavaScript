@@ -1,1 +1,1 @@
-# Glipses-of-JavaScript
+# Glimpses-of-JavaScript
