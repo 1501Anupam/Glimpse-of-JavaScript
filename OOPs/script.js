@@ -167,3 +167,111 @@ console.log(ford);
 console.log(ford.speedUS);
 ford.speedUS = 50;
 console.log(ford);
+
+
+//Inheritance using constructor functions
+const CarVehicle = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+CarVehicle.prototype.accelerate = function () {
+  console.log(`The ${this.make} is going at speed of ${this.speed+10}`);
+}
+
+CarVehicle.prototype.brake = function () {
+  console.log(`The ${this.make} is going at speed of ${this.speed-5}`);
+}
+
+const EV = function (make, speed, charge) {
+  CarVehicle.call(this, make, speed);
+  this.charge = charge;
+}
+
+//this is responsible for inheritance
+EV.prototype = Object.create(CarVehicle.prototype);
+
+EV.prototype.chargeBattery = function (chargeTo) {
+  this.charge = chargeTo;
+  console.log(this.charge);
+}
+
+EV.prototype.accelerate = function () {
+  this.speed = this.speed + 20;
+  this.charge--;
+  console.log(`The ${this.make} is going at speed of ${this.speed} and charge is ${this.charge}`);
+}
+
+const electricCar = new EV('Tesla', 120, 23);
+console.log(electricCar);
+electricCar.chargeBattery(90);
+console.log(electricCar);
+electricCar.accelerate();
+electricCar.brake();
+console.log(electricCar);
+
+//Inheritance using ES6 classes
+
+class PersonClass {
+  constructor(fullname, birthYear) {
+    this.fullname = fullname;
+    this.birthYear = birthYear;
+  }
+
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  introduce() {
+    console.log(`Hey there I am ${this.fullname}`);
+  }
+}
+
+class StudentClass extends PersonClass {
+  constructor(fullname, birthYear, course) {
+    //super should be first statement here, it will set the this keyword.
+    super(fullname, birthYear);
+    this.course = course;
+  }
+
+  calcAge() {
+    console.log(2037 - this.birthYear + 5);
+  }
+}
+
+const martha = new StudentClass('Martha Jones', 2012, 'CSE');
+const Jaden = new StudentClass('Jaden', 2020);
+console.log(martha);
+console.log(Jaden);
+Jaden.introduce();
+
+//Inheritance using Object.create()
+
+const PersonPro = {
+  init(fullname, birthYear) {
+    this.fullname = fullname;
+    this.birthYear = birthYear;
+  },
+
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+};
+
+const StudentPro = Object.create(PersonPro);
+
+StudentPro.init = function (fullname, birthYear, course) {
+  PersonPro.init.call(this, fullname, birthYear);
+  this.course = course;
+}
+
+StudentPro.introduce = function () {
+  console.log(`Hey Guys I am ${this.fullname}`);
+}
+
+console.log(StudentPro);
+const Jay = Object.create(StudentPro);
+Jay.init('Jay', 1988, 'CSE');
+Jay.introduce();
+Jay.calcAge();
+console.log(Jay);
