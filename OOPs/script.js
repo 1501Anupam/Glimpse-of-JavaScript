@@ -275,3 +275,103 @@ Jay.init('Jay', 1988, 'CSE');
 Jay.introduce();
 Jay.calcAge();
 console.log(Jay);
+
+// Encapsulation Implementation
+
+class AccountCl {
+  // Private fields
+  #pin;
+  #movements = [];
+
+  // public fields
+  locale = navigator.language;
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.#pin = pin;
+
+  }
+  // Public Methods
+  getMovements() {
+    return this.#movements
+  }
+
+  withdrawal(val) {
+    this.#movements.push(-val);
+    return this;
+  }
+
+  benefits(val) {
+    this.#movements.push(val);
+    return this;
+  }
+
+  requestLoan(val) {
+    this.#movements.push(val);
+    this.#approveLoan();
+    return this;
+  }
+
+  // Private Methods
+  #approveLoan() {
+    console.log("Loan is approved!");
+  }
+
+  static helper(){
+    console.log("This is a helper method");
+  }
+}
+
+const acc = new AccountCl('Jonas', 'EUR', 1111);
+console.log(acc);
+acc.withdrawal(100);
+acc.benefits(2000);
+AccountCl.helper();
+acc.benefits(1000).withdrawal(200).benefits(2000).requestLoan(5000).withdrawal(500).benefits(100);
+console.log(acc.getMovements());
+
+//final Challenge
+
+class TheCarCl {
+  constructor(Make, speed){
+    this.Make=Make;
+    this.speed=speed;
+  }
+
+  accelerate(){
+    this.speed+=10;
+    console.log(`${this.Make} is going at speed ${this.speed}`);
+  }
+
+  brake(){
+    this.speed-=5;
+    console.log(`${this.Make} is going at speed ${this.speed}`);
+    return this;
+  }
+}
+
+class TheEVCl extends TheCarCl {
+  #chargeProp;
+  constructor(Make, speed,charge) {
+    super(Make, speed);
+    this.#chargeProp=charge;
+  }
+
+  accelerate(){
+    this.speed+=20;
+    this.#chargeProp--;
+    console.log(`${this.Make} is going at speed ${this.speed} and charge is ${this.#chargeProp}`);
+    return this;
+  }
+
+  chargeBatteryMethod(chargeTo){
+    this.#chargeProp=chargeTo;
+    console.log(`Charge is ${this.#chargeProp}`);
+    return this;
+  }
+}
+
+const rivian = new TheEVCl('Rivian',120,23);
+console.log(rivian);
+console.log(rivian.accelerate().accelerate().brake().chargeBatteryMethod(10).accelerate().accelerate().chargeBatteryMethod(5));
