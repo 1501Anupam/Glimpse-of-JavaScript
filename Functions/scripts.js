@@ -23,3 +23,42 @@ bookFlight('AH123', 12); // Starting 2 params will passed and last param will us
 console.log(bookings);
 bookFlight('AH123', undefined, 300); //If we want to skip a parameter in between then we need to set it undefined
 console.log(bookings);
+
+
+//JS call by value and pass the reference not pass by reference
+
+flightNum = 'CFR8577';
+
+const personPassport = function (flightNum, Person) {
+    flightNum = 'AH2321';
+    console.log(flightNum);
+    Person.passportNum = 86238468325;
+    console.log(flightNum, Person);
+    if (Person.passportNum === 86238468325) {
+        alert("Checked In");
+    } else {
+        alert("wrong details");
+    }
+}
+
+Person = {
+    passportNum: 2124324534,
+    name: "Jonas",
+    age: 32
+};
+
+personPassport(flightNum, Person);
+
+console.log(Person);
+console.log(flightNum);
+
+const CheckedIn = function (Person) {
+    if (Person.passportNum === 2124324534) {
+        alert("Checked In");
+    } else {
+        alert("Wrong details!", Person.passportNum);
+    }
+}
+
+CheckedIn(Person);
+console.log(Person.passportNum);
