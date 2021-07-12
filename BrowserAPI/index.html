@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser API</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        h1 {
+            color: #000;
+            /* background: linear-gradient(rgb(68, 10, 68), rgb(166, 44, 170)); */
+            margin: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="./scripts.js"></script>
+    <h1>JAVASCRIPT WEB API</h1>
+    <h4>Web Validation API</h4>
+    <input type="number" min="100" max="400" id="inp1" required>
+    <button onclick="myFunc()">OKAY</button>
+    <p id="demo"></p>
+
+    <h4>Web History API</h4>
+    <button onclick="bakcFunc()">BACK</button>
+    <button onclick="forwardFunc()">FORWARD</button>
+    <button onclick="goBackFunc()">GO BACK</button>
+    <button onclick="lengthFunc()">LENGTH</button>
+
+    <h4>Web Storage API</h4>
+    <button onclick="localFunc()">Save in localStorage</button>
+    <button onclick="sessionFunc()">Save in sessionStorage</button>
+
+    <h4>Web Worker API</h4>
+    <p>Start Count: <output id="res"></output> </p>
+    <button onclick="startWorker()">Start Worker</button>
+    <button onclick="stopWorker()">Stop Worker</button>
+
+    <h4>Web Geolocation API</h4>
+    <p id="demo">Get location</p>
+</body>
+
+</html>
