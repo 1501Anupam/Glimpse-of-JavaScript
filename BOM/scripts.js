@@ -12,3 +12,46 @@ document.getElementById("demo9").innerHTML = "screen.availWidth " + screen.avail
 document.getElementById("demo10").innerHTML = "screen.availHeight " + screen.availHeight;
 document.getElementById("demo11").innerHTML = "screen.colorDepth " + screen.colorDepth;
 document.getElementById("demo12").innerHTML = "screen.pixelDepth " + screen.pixelDepth;
+
+window.document.getElementById("demo13").innerHTML = "location.href " + window.location.href;
+document.getElementById("demo14").innerHTML = "location.hostname " + location.hostname;
+document.getElementById("demo15").innerHTML = "location.pathname " + location.pathname;
+document.getElementById("demo16").innerHTML = "location.protocol" + location.protocol;
+document.getElementById("demo16").innerHTML = "location.port" + location.port;
+// document.getElementById("demo17").innerHTML = "location.assign() " + location.assign("https://google.com");
+
+function backBtn() {
+    history.back();
+}
+
+function forwardBtn() {
+    window.history.forward();
+}
+console.log(navigator.appName);
+console.log(navigator.appCodeName);
+console.log(navigator.platform);
+console.log(navigator.cookieEnabled);
+// document.getElementById("demo18").innerHTML = "navigator.app " + document.navigator.appName;
+// document.getElementById("demo19").innerHTML = "navigator.appCodeName " + navigator.appCodeName;
+// document.getElementById("demo20").innerHTML = "navigator.app " + document.navigator.platform;
+// document.getElementById("demo21").innerHTML = "navigator.app " + document.navigator.cookieEnabled;
+
+let myVar1 = setInterval(myInterval, 1000);
+
+function myInterval() {
+    const mydate = new Date();
+    document.getElementById("demo23").innerHTML = mydate.toLocaleTimeString();
+}
+
+let myVar2 = setTimeout(myTimeout, 10000);
+
+function myTimeout() {
+    document.getElementById("demo24").innerHTML = "I have been called after specified seconds";
+}
+
+// let x = window.alert("Hey are you sure you are accessing this site?");
+// console.log(x);
+// let y = window.confirm("How this site is doing?");
+// console.log(y);
+// let z = window.prompt("Enter a value");
+// console.log(z);
